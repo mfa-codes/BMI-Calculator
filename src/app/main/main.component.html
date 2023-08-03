@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div id="container">
+    <h3>Please, fill in all the fields below to calculate your <br>Body-Mass-Index</h3>
+    <div class="radio-input">
+        <label for="radio">
+            <input name="radio" value="Women" type="radio" class="inputradio" [(ngModel)]="this.human">
+            <br><span>Women</span>
+        </label><br>
+
+        <label for="Men">
+            <input name="radio" value="Men" type="radio" class="inputradio" [(ngModel)]="this.human">
+            <br>
+            <span>Men</span>
+        </label><br>
+
+        <label for="Divided">
+            <input name="radio" value="Divided" type="radio" class="inputradio" [(ngModel)]="this.human">
+            <br>
+            <span>Divided</span>
+        </label><br>
+    </div>
+    
+    <div class="inputs">
+        <input type="number" name="text" class="input" placeholder="cm" [(ngModel)]="this.cm">
+        <br>
+        <input type="number" name="text" class="input" placeholder="Kg" [(ngModel)]="this.kg">
+    </div>
+
+    <div class="button">
+        <button class="btn" (click)="calculate()">
+            Send
+        </button>
+    </div>
+
+    <hr>
+
+    <div class="answer">
+        <h4>In this section you will find the answer</h4>
+        <p>{{this.answerHuman}}</p>
+        <p>{{this.answerValue}}</p>
+        <p>{{this.answerInfo}}</p>
+    </div>
+</div>
+<app-footer></app-footer>

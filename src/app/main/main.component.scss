@@ -1,0 +1,230 @@
+#container{
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.1);
+
+    h3{
+        color: black;
+        padding: 5px;
+        font-size: xx-large;
+    }
+
+    .radio-input{
+        .inputradio {
+            -webkit-appearance: none;
+           /* remove default */
+            margin: 10px;
+            width: 24px;
+            height: 24px;
+            border-radius: 12px;
+            cursor: pointer;
+            vertical-align: middle;
+            box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+            background-color: hsla(0,0%,0%,.2);
+            background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
+            background-repeat: no-repeat;
+            -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+              -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+            outline: none;
+        }
+          
+        .inputradio:checked {
+            -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1),
+              -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+        }
+          
+        .inputradio:active {
+            -webkit-transform: scale(1.5);
+            -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+        }
+          
+          
+          
+          /* The up/down direction logic */
+          
+        .inputradio,
+        .inputradio:active {
+            background-position: 0 24px;
+        }
+          
+        .inputradio:checked {
+            background-position: 0 0;
+        }
+          
+        .inputradio:checked ~ .inputradio,
+        .inputradio:checked ~ .inputradio:active {
+            background-position: 0 -24px;
+        }
+    }
+
+
+    .inputs{
+        padding: 20px;
+        margin: 5px;
+        .input {
+            margin: 10px;
+            text-align: center;
+            color: #fff;
+            background-color: rgb(28,28,30);
+            box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            padding: 20px;
+            max-width: 190px;
+            transition: .4s;
+        }
+          
+        .input:hover {
+            box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+        }
+          
+        .input:focus {
+            box-shadow: 0 0 0 .15vw skyblue;
+        }
+    }
+
+    .button{
+        .btn {
+            --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+            --border-width: .125em;
+            --curve-size: .5em;
+            --blur: 30px;
+            --bg: #080312;
+            --color: #afffff;
+            color: var(--color);
+              /* use position: relative; so that BG is only for .btn */
+            position: relative;
+            isolation: isolate;
+            display: inline-grid;
+            place-content: center;
+            padding: 15px;
+            font-size: 17px;
+            border: 0;
+            width: 40%;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+            clip-path: polygon(
+                      /* Top-left */
+                      0% var(--curve-size),
+          
+                      var(--curve-size) 0,
+                      /* top-right */
+                      100% 0,
+                      100% calc(100% - var(--curve-size)),
+          
+                      /* bottom-right 1 */
+                      calc(100% - var(--curve-size)) 100%,
+                      /* bottom-right 2 */
+                      0 100%);
+            transition: color 250ms;
+          }
+          
+          .btn::after,
+          .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+          }
+          
+          .btn::before {
+            background: var(--border-color);
+            background-size: 300% 300%;
+            animation: move-bg7234 5s ease infinite;
+            z-index: -2;
+          }
+          
+          @keyframes move-bg7234 {
+            0% {
+              background-position: 31% 0%
+            }
+          
+            50% {
+              background-position: 70% 100%
+            }
+          
+            100% {
+              background-position: 31% 0%
+            }
+          }
+          
+          .btn::after {
+            background: var(--bg);
+            z-index: -1;
+            clip-path: polygon(
+                      /* Top-left */
+                      var(--border-width) 
+                      calc(var(--curve-size) + var(--border-width) * .5),
+          
+                      calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
+          
+                      /* top-right */
+                      calc(100% - var(--border-width)) 
+                      var(--border-width),
+          
+                      calc(100% - var(--border-width)) 
+                      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+          
+                      /* bottom-right 1 */
+                      calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
+                      /* bottom-right 2 */
+                      var(--border-width) calc(100% - var(--border-width)));
+            transition: clip-path 500ms;
+          }
+          
+          .btn:where(:hover, :focus)::after {
+            clip-path: polygon(
+                          /* Top-left */
+                          calc(100% - var(--border-width)) 
+          
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+              
+                          calc(100% - var(--border-width))
+          
+                          var(--border-width),
+              
+                          /* top-right */
+                          calc(100% - var(--border-width))
+          
+                           var(--border-width),
+              
+                          calc(100% - var(--border-width)) 
+          
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
+              
+                          /* bottom-right 1 */
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
+                          calc(100% - var(--border-width)),
+          
+                          /* bottom-right 2 */
+                          calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+                          calc(100% - var(--border-width)));
+            transition: 200ms;
+          }
+          
+          .btn:where(:hover, :focus) {
+            color: #fff;
+          }
+    }
+
+    hr{
+        color: white;
+        margin: 20px;
+    }
+
+    .answer{
+        padding: 5px;
+        margin: 5px;
+        text-align: center;
+        color: white;
+        font-size: 120%;
+        h4{
+            font-size: x-large;
+        }
+    }
+}
